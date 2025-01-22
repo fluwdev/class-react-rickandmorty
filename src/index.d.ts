@@ -25,5 +25,5 @@ export interface ResponseAPI {
     next: number | null
     previous: number | null
   }
-  results: CharacterData[]
+  results: CharacterAttributes[]
 }

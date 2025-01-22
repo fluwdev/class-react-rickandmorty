@@ -1,4 +1,4 @@
-import { CharacterData, CharacterAttributes, ResponseAPI } from '.'
+import { CharacterAttributes, ResponseAPI } from '.'
 
 export class APIHandler {
   baseURL: string
@@ -95,7 +95,7 @@ export class Character {
 }
 
 class HumanCharacter extends Character {
-  constructor(data: CharacterData) {
+  constructor(data: CharacterAttributes) {
     super(data)
   }
 
@@ -106,7 +106,7 @@ class HumanCharacter extends Character {
 }
 
 class AlienCharacter extends Character {
-  constructor(data: CharacterData) {
+  constructor(data: CharacterAttributes) {
     super(data)
   }
 
@@ -135,7 +135,7 @@ export class RickAndMortyStore {
     )
     this.nextPage = data.info.next ? this.nextPage + 1 : null
 
-    const newCharacters = data.results.map((char: CharacterData) =>
+    const newCharacters = data.results.map((char) =>
       char.species === 'Human'
         ? new HumanCharacter(char)
         : new AlienCharacter(char)
